@@ -1,6 +1,8 @@
 pipeline {
     agent any
-    
+    triggers {
+        githubPush()
+    }
     environment {
         DOCKER_IMAGE = 'kevinmcclos4dev/flask-app'
         DOCKER_TAG = "${BUILD_NUMBER}"
