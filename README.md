@@ -1,43 +1,42 @@
-# Flask API with Docker and Jenkins CI/CD
+# Flask API Project
 
-A simple Flask API with Docker containerization and Jenkins CI/CD pipeline.
+A simple Flask API project with Docker and CI/CD setup.
 
-## Features
+## Project Structure
+```
+flask_app/              # Main package directory
+├── __init__.py        # Makes flask_app a package
+├── app.py            # Main application code
+tests/                 # Test directory
+├── __init__.py       # Makes tests a package
+└── test_app.py       # Test code
+setup.py              # Package configuration
+requirements.txt      # Dependencies
+Dockerfile           # Docker configuration
+Jenkinsfile          # CI/CD pipeline configuration
+```
 
-- Basic Flask API with three endpoints:
-  - `/`: Home endpoint
-  - `/health`: Health check endpoint
-  - `/api-data`: Sample data endpoint
-- Docker containerization
-- Jenkins CI/CD pipeline
-- Unit tests with pytest
+## Setup
 
-## Prerequisites
-
-- Python 3.11+
-- Docker
-- Jenkins
-- Docker Hub account
-
-## Local Development
-
-1. Create a virtual environment:
+1. Create and activate virtual environment:
 ```bash
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```
 
-2. Install dependencies:
+2. Install the package in editable mode:
 ```bash
-pip install -r requirements.txt
+pip install -e .
 ```
 
 3. Run the application:
 ```bash
-python app.py
+python -m flask_app.app
 ```
 
-4. Run tests:
+## Testing
+
+Run tests using pytest:
 ```bash
 pytest
 ```
@@ -47,21 +46,22 @@ pytest
 Build and run the Docker container:
 ```bash
 docker build -t flask-app .
-docker run -p 5000:5000 flask-app
+docker run -d --name flask-app -p 5000:5000 flask-app
 ```
-
-## Jenkins Setup
-
-1. Create a new Pipeline job in Jenkins
-2. Configure the job to use the Jenkinsfile from SCM
-3. Add Docker Hub credentials in Jenkins (ID: dockerhub-credentials)
-4. Update the DOCKER_IMAGE variable in Jenkinsfile with your Docker Hub username
 
 ## API Endpoints
 
 - `GET /`: Welcome message
-- `GET /health`: Health check status
-- `GET /api-data`: Sample data response
+- `GET /health`: Health check endpoint
+- `GET /api-data`: Sample API data endpoint
+
+## Development
+
+This project uses:
+- Flask for the web framework
+- pytest for testing
+- Docker for containerization
+- Jenkins for CI/CD
 
 ## License
 
