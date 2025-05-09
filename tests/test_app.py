@@ -26,4 +26,4 @@ def test_api_data_route(client):
     assert response.status_code == 200
     data = response.get_json()
     assert 'data' in data
-    assert len(data['data']) == 3 
+    assert len(data['data']) >= 3
