@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     environment {
-        DOCKER_IMAGE = 'your-dockerhub-username/flask-app'
+        DOCKER_IMAGE = 'kevinmcclos4dev/flask-app'
         DOCKER_TAG = "${BUILD_NUMBER}"
     }
     
