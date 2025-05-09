@@ -26,7 +26,8 @@ def api_data():
             {'id': 4, 'name': 'Item 4'},
             {'id': 5, 'name': 'Item 5'},
             {'id': 6, 'name': 'Item 6'},
-            {'id': 7, 'name': 'Item 7'}
+            {'id': 7, 'name': 'Item 7'},
+            {'id': 8, 'name': 'Item 8'}
         ]
     })
 
