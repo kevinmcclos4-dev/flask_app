@@ -31,4 +31,7 @@ wheels/
 .vscode/
 *.swp
 *.swo
-.DS_Store 
+.DS_Store
+
+# Package metadata
+flask_app.egg-info/ 
