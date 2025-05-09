@@ -21,7 +21,12 @@ pipeline {
         
         stage('Run Tests') {
             steps {
-                sh "docker run ${DOCKER_IMAGE}:${DOCKER_TAG} pytest"
+                sh """
+                    docker run --rm ${DOCKER_IMAGE}:${DOCKER_TAG} /bin/bash -c '
+                        pip install -e . && 
+                        pytest
+                    '
+                """
             }
         }
         
